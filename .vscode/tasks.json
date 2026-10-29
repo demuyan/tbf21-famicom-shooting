@@ -1,0 +1,35 @@
+{
+  // サンプルのメインのファイル（例: 01_show_sprite.asm）を開いた状態で実行してください。
+  // *_data.asm や *_vars.inc を開いたまま実行すると、ビルドに失敗します。
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "asm6f: ビルド",
+      "type": "shell",
+      "command": "asm6f",
+      "args": ["${fileBasename}", "${fileBasenameNoExtension}.nes"],
+      "options": { "cwd": "${fileDirname}" },
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "Mesen2: 起動",
+      "type": "shell",
+      "command": "Mesen",
+      "args": ["${fileBasenameNoExtension}.nes"],
+      "windows": { "command": "Mesen.exe" },
+      "osx": {
+        "command": "open",
+        "args": ["-a", "Mesen", "${fileBasenameNoExtension}.nes"]
+      },
+      "options": { "cwd": "${fileDirname}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "ビルドして起動",
+      "dependsOn": ["asm6f: ビルド", "Mesen2: 起動"],
+      "dependsOrder": "sequence",
+      "problemMatcher": []
+    }
+  ]
+}

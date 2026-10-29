@@ -1,0 +1,21 @@
+# asm6f のビルド成果物
+*.nes
+*.lst
+*.nl
+*.mlb
+*.cdl
+
+# OS が作るファイル
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# エディター
+.vscode/*
+!.vscode/tasks.json
+.idea/
+*.swp
+*~
+
+# Claude Code の作業用フォルダー
+.claude/
